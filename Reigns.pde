@@ -1,22 +1,33 @@
-Button btn;
-int counter = 0;
+Button leftBTN, rightBTN;
+Scenario currentScenario;
+HashMap<String, Scenario> scenarios;
+
+void SwitchScenario(String newScenario) {
+  currentScenario = scenarios.get(newScenario);
+  leftBTN.text = currentScenario.leftChoice.label;
+  rightBTN.text = currentScenario.rightChoice.label;
+}
 
 void setup() {
   size(640, 480);
   
-  btn = new Button(10, 10, 100, 50, "Press me!");
-  btn.defaultC = new ColorCombo(color(255, 0, 0), color(255));
-  btn.hoverC = new ColorCombo(color(150, 0, 0), color(255));
-  btn.downC = new ColorCombo(color(100, 0, 0), color(255));
+  leftBTN = new Button(width/4 + 10, height - 70, 100, 50, "Left");
+  rightBTN = new Button(width/4 + width/2 - 110, height - 70, 100, 50, "Right");
+  scenarios = GetScenarioTree();
+  SwitchScenario("Intro");
 }
 
 void draw() {
   background(0);
   fill(255);
   
-  if (btn.isPressed()) {
-    counter++;
-    btn.text = str(counter);
-    print("pressed!");
+  currentScenario.display();
+  
+  if (leftBTN.isPressed()) {
+    currentScenario.leftChoice.execute();
+  }
+  
+  if (rightBTN.isPressed()) {
+    currentScenario.rightChoice.execute();
   }
 }

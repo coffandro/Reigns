@@ -10,6 +10,10 @@ class Button {
     pos = new PVector(x, y);
     size = new PVector(w, h);
     this.text = text;
+    defaultC = new ColorCombo(color(255, 0, 0), color(255));
+    hoverC = new ColorCombo(color(150, 0, 0), color(255));
+    downC = new ColorCombo(color(100, 0, 0), color(255));
+    bevel = 10;
   }
   
   boolean isHovered() {
@@ -38,7 +42,10 @@ class Button {
     fill(currentColor.fg);
     textSize(fontSize);
     textAlign(CENTER);
-    text(text, pos.x/2 + size.x/2, pos.y/2 + size.y - fontSize);
+    text(text,
+      pos.x + (size.x/2),
+      pos.y + (size.y/2) + (fontSize/2)
+     );
     
     if (lastState == false && retVar == true) {
       lastState = retVar;
