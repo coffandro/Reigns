@@ -9,7 +9,7 @@ HashMap<String, Scenario> GetScenarioTree() {
   
   retScenarios.put("SleepNow", 
     new Scenario("Mom.png", "Mom", 
-      "That's not so good, you'll need to sleep now!",
+      "a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a bs",
       new Choice("Wait no...", "AcceptSleep"), new Choice("awww okay :/", "Exit")
   ));
   

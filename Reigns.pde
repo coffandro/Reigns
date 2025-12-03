@@ -1,33 +1,47 @@
-Button leftBTN, rightBTN;
 Scenario currentScenario;
 HashMap<String, Scenario> scenarios;
+PVector mousePos;
+PFont regularFont, boldFont, italicFont;
 
 void SwitchScenario(String newScenario) {
   currentScenario = scenarios.get(newScenario);
-  leftBTN.text = currentScenario.leftChoice.label;
-  rightBTN.text = currentScenario.rightChoice.label;
 }
 
 void setup() {
-  size(640, 480);
+  size(1000, 1000);
+  rectMode(CENTER);
+  imageMode(CENTER);
   
-  leftBTN = new Button(width/4 + 10, height - 70, 100, 50, "Left");
-  rightBTN = new Button(width/4 + width/2 - 110, height - 70, 100, 50, "Right");
+  mousePos = new PVector();
+  
   scenarios = GetScenarioTree();
   SwitchScenario("Intro");
+  regularFont = createFont("RobotoCondensed-Regular.ttf", 64);
+  boldFont = createFont("RobotoMono-Medium.ttf", 64);
+  italicFont = createFont("RobotoCondensed-Italic.ttf", 64);
 }
 
 void draw() {
+  mousePos.set(mouseX, mouseY);
+  
   background(0);
   fill(255);
   
-  currentScenario.display();
-  
-  if (leftBTN.isPressed()) {
-    currentScenario.leftChoice.execute();
+  if (isHovered(currentScenario.pos, currentScenario.size) && mousePressed) {
+    currentScenario.dragging = true;
   }
   
-  if (rightBTN.isPressed()) {
-    currentScenario.rightChoice.execute();
+  currentScenario.display();
+}
+
+void mouseReleased() {
+  if (currentScenario.dragging) {
+    if (mouseX < width/4) {
+      currentScenario.leftChoice.execute();
+    } else if (mouseX > width/2 + width/4) {
+      currentScenario.rightChoice.execute();
+    } else {
+      currentScenario.dragging = false;
+    }
   }
 }
