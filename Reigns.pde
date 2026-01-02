@@ -3,10 +3,6 @@ HashMap<String, Scenario> scenarios;
 PVector mousePos;
 PFont regularFont, boldFont, italicFont;
 
-void SwitchScenario(String newScenario) {
-  currentScenario = scenarios.get(newScenario);
-}
-
 void setup() {
   size(1000, 1000);
   rectMode(CENTER);
@@ -15,10 +11,10 @@ void setup() {
   mousePos = new PVector();
   
   scenarios = GetScenarioTree();
-  SwitchScenario("Intro");
-  regularFont = createFont("RobotoCondensed-Regular.ttf", 64);
-  boldFont = createFont("RobotoMono-Medium.ttf", 64);
-  italicFont = createFont("RobotoCondensed-Italic.ttf", 64);
+  SwitchScenario(introScenario);
+  regularFont = createFont("data/font/RobotoCondensed-Regular.ttf", 64);
+  boldFont = createFont("data/font/RobotoMono-Medium.ttf", 64);
+  italicFont = createFont("data/font/RobotoCondensed-Italic.ttf", 64);
 }
 
 void draw() {
