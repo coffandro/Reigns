@@ -27,6 +27,9 @@ void SwitchScenario(String _newScenario) {
       }
     }
   }
+  
+  leftButton.text = currentScenario.leftChoice.label;
+  rightButton.text = currentScenario.rightChoice.label;
 }
 
 HashMap<String, Scenario> GetScenarioTree() {
@@ -75,27 +78,27 @@ HashMap<String, Scenario> GetScenarioTree() {
     ));
 
   retScenarios.put("L1.1 CoworkerLovesDoggie",
-    new Scenario("data/Mom.png", "data/bg.png", "Karen",
+    new Scenario("data/cookie.png", "data/bg.png", "Karen",
     "\"Your dog is so adorable, I've got a cookie for him\" She says as she extends a cookie towards your dog.",
     new Choice("You stop her and ask what's in the cookie", "L1.1 CoworkerCookieExplain"),
     new Choice("You let her feed the dog the cookie", "L1.1 CoworkerCookieDogDied")
     ));
 
   retScenarios.put("L1.1 CoworkerCookieExplain",
-    new Scenario("data/Mom.png", "data/bg.png", "Karen",
+    new Scenario("data/cookie.png", "data/bg.png", "Karen",
     "\"Just some sugar, chocolate, a standard cookie\" She says before repeating her previous motion.",
     new Choice("You stop her and tell her not to", "L1.1 CoworkerCookieAvoided"),
     new Choice("You let her feed the dog the cookie", "L1.1 CoworkerCookieDogDied")
     ));
 
   retScenarios.put("L1.1 CoworkerCookieDogDied",
-    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    new Scenario("data/cookie.png", "data/bg.png", "Narrator",
     "The cookie contained chocolate, the dog explodes immedietly taking you and the building with it.",
     new Choice("AAA-", "Exit"), new Choice("FUUU-", "Exit")
     ));
 
   retScenarios.put("L1.1 CoworkerCookieAvoided",
-    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    new Scenario("data/cookie.png", "data/bg.png", "Narrator",
     "After saving your dog from the posionous chocolate you get called into your boss' office.",
     new Choice("...", "L2.1 CoffeeBossSendsToGet"),
     new Choice("...", "L2.1 CoffeeBossSendsToGet")
@@ -136,7 +139,7 @@ HashMap<String, Scenario> GetScenarioTree() {
     new Scenario("data/Mom.png", "data/bg.png", "Narrator",
     "You arrive at the coffee shop, enter and go to the counter.\n As the Barista asks you what you want to order you realise that you don't actually know what your boss would like...",
     new Choice("Order a Venti cup of Double Ristretto with Iced Vanilla Double Shot and Organic Chocolate Brownie Decaf coffee; Nonfat half-breve double blended upside-down with whipped cream and foam, extra hot Gingerbread Frappuccino, a Nutrasweet and a Sweet N'Low, finally touched with some ice.",
-      "L2.2 ReturnToOffice:SweetCoffee"),
+    "L2.2 ReturnToOffice:SweetCoffee"),
     new Choice("Order a black coffee, dark like his soul.", "L2.2 ReturnToOffice:DarkCoffee")
     ));
 
@@ -145,7 +148,7 @@ HashMap<String, Scenario> GetScenarioTree() {
   //////////////////////////////////////////////////
   retScenarios.put("L2.2 ReturnToOffice",
     new Scenario("data/Mom.png", "data/bg.png", "Narrator",
-    "MESSAGE",
+    "Upon returning to the office you find that the bottom floor of the building is packed with people",
     new Choice("ANSWER1", "Exit"),
     new Choice("ANSWER2", "Exit")
     ));

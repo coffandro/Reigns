@@ -1,43 +1,41 @@
 Scenario currentScenario;
 HashMap<String, Scenario> scenarios;
-PVector mousePos;
 PFont regularFont, boldFont, italicFont;
+Button leftButton, rightButton;
 
 void setup() {
   size(1000, 1000);
   rectMode(CENTER);
   imageMode(CENTER);
-  
-  mousePos = new PVector();
+
+  leftButton = new Button(25, height/8, width/4-25*2, height-(height/8)*2);
+  rightButton = new Button(width/2 + width/4 + 25, height/8, width/4-25*2, height-(height/8)*2);
   
   scenarios = GetScenarioTree();
   SwitchScenario(introScenario);
+
   regularFont = createFont("data/font/RobotoCondensed-Regular.ttf", 64);
   boldFont = createFont("data/font/RobotoMono-Medium.ttf", 64);
   italicFont = createFont("data/font/RobotoCondensed-Italic.ttf", 64);
 }
 
 void draw() {
-  mousePos.set(mouseX, mouseY);
+  currentScenario.update();
+  leftButton.update();
+  rightButton.update();
   
+  if (leftButton.IsClicked()) {
+    SwitchScenario(currentScenario.leftChoice.next);
+  }
+  
+  if (rightButton.IsClicked()) {
+    SwitchScenario(currentScenario.rightChoice.next);
+  }
+
   background(0);
   fill(255);
-  
-  if (isHovered(currentScenario.pos, currentScenario.size) && mousePressed) {
-    currentScenario.dragging = true;
-  }
-  
-  currentScenario.display();
-}
 
-void mouseReleased() {
-  if (currentScenario.dragging) {
-    if (mouseX < width/4) {
-      currentScenario.leftChoice.execute();
-    } else if (mouseX > width/2 + width/4) {
-      currentScenario.rightChoice.execute();
-    } else {
-      currentScenario.dragging = false;
-    }
-  }
+  currentScenario.display();
+  leftButton.display();
+  rightButton.display();
 }
