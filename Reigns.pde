@@ -21,7 +21,6 @@ void setup() {
 }
 
 void draw() {
-  currentScenario.update();
   leftButton.update();
   rightButton.update();
 

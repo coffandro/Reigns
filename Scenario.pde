@@ -17,15 +17,14 @@ class Choice {
 }
 
 class Scenario {
-  PImage img, bg;
+  PImage img;
   String title, message;
   PVector pos, size;
   boolean dragging = false;
   Choice leftChoice, rightChoice;
 
-  Scenario(String imgPath, String bgPath, String title, String message, Choice leftChoice, Choice rightChoice) {
+  Scenario(String imgPath, String title, String message, Choice leftChoice, Choice rightChoice) {
     img = loadImage(imgPath);
-    bg = loadImage(bgPath);
     this.title = title;
     this.message = message;
     pos = new PVector(width/2, height/2);
@@ -34,24 +33,9 @@ class Scenario {
     this.rightChoice = rightChoice;
   }
 
-  void drawBG() {
-    pushMatrix();
-    translate(width/2, height/2);
-    image(bg, 0, 0, width/2, width/2);
-    popMatrix();
-  }
-
   void drawCard() {
     pushMatrix();
-
-    if (dragging) {
-      float drag = max(min(float(mouseX), width), 0);
-      translate(width/4 + pos.x * drag/float(width), pos.y);
-      rotate(drag/float(width)*PI/4-PI/8);
-    } else {
-      translate(pos.x, pos.y);
-    }
-
+    translate(pos.x, pos.y);
     fill(240, 217, 175);
 
     image(img, 0, 0, size.x, size.y);
@@ -78,24 +62,14 @@ class Scenario {
     fill(255);
     textSize(32);
 
-    //textAlign(LEFT);
-    //text(leftChoice.label, -width/2 + 25, width/3, 225, height);
-
-    //textAlign(RIGHT);
-    //text(rightChoice.label, width/2 - 250, height/3, 225, height);
     rectMode(CENTER);
 
     popMatrix();
   }
 
-  void update() {
-  }
-
   void display() {
     rectMode(CENTER);
     rect(width/2, height/2, width/2, height, 25);
-
-    drawBG();
     drawTexts();
 
     drawCard();
