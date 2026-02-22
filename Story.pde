@@ -83,7 +83,7 @@ HashMap<String, Scenario> GetScenarioTree() {
     ));
 
   retScenarios.put("L1.1 CoworkerInit",
-    new Scenario("data/Mom.png", "Narrator",
+    new Scenario("data/karen.png", "Narrator",
     "After finally being allowed in you get to your floor where you get stopped by your coworker Karen.",
     new Choice("...", "L1.1 CoworkerLovesDoggie"),
     new Choice("...", "L1.1 CoworkerLovesDoggie")
@@ -120,28 +120,28 @@ HashMap<String, Scenario> GetScenarioTree() {
   //                     L2.1                     //
   //////////////////////////////////////////////////
   retScenarios.put("L2.1 CoffeeBossSendsToGet",
-    new Scenario("data/Mom.png", "Boss",
+    new Scenario("data/bossman.png", "Boss",
     "\"I have been told you've bring your dog to work, that's against the rules...\n\n I am to report this BUT... I really need coffee and the intern's left the country so I'll let it slide if you get me a cuppa.\"",
     new Choice("\"I'll go get you coffee, but what do I do about my dog?\"", "L2.1 CoffeeBossAccept"),
     new Choice("\"Nah, you can buy your own coffee\"", "L2.1 CoffeeBossDeny")
     ));
 
   retScenarios.put("L2.1 CoffeeBossAccept",
-    new Scenario("data/Mom.png", "Narrator",
+    new Scenario("data/bossman.png", "Boss",
     "Excellent, I'll just keep the dog here... For safe keeping",
     new Choice("...", "L2.1 CoffeeShopArrival"),
     new Choice("...", "L2.1 CoffeeShopArrival")
     ));
 
   retScenarios.put("L2.1 CoffeeBossDeny",
-    new Scenario("data/Mom.png", "Boss",
+    new Scenario("data/bossman.png", "Boss",
     "\"HOW DARE YOU?! I provide you a chance to avoid a write-up for a simple cup of coffee and you dare to deny me? You are fired.\" he says as security enters.",
     new Choice("Oh...", "Exit"),
     new Choice("I WILL FIGHT!!!", "L2.1 CoffeeBossFight")
     ));
 
   retScenarios.put("L2.1 CoffeeBossFight",
-    new Scenario("data/Mom.png", "Narrator",
+    new Scenario("data/bossman.png", "Boss",
     "You proceed to get your ass handed to you.",
     new Choice("...", "Exit"),
     new Choice("...", "Exit")
