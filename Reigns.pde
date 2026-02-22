@@ -5,12 +5,13 @@ Button leftButton, rightButton;
 
 void setup() {
   size(1000, 1000);
+
   rectMode(CENTER);
   imageMode(CENTER);
 
   leftButton = new Button(25, height/8, width/4-25*2, height-(height/8)*2);
   rightButton = new Button(width/2 + width/4 + 25, height/8, width/4-25*2, height-(height/8)*2);
-  
+
   scenarios = GetScenarioTree();
   SwitchScenario(introScenario);
 
@@ -23,16 +24,16 @@ void draw() {
   currentScenario.update();
   leftButton.update();
   rightButton.update();
-  
+
   if (leftButton.IsClicked()) {
-    SwitchScenario(currentScenario.leftChoice.next);
-  }
-  
-  if (rightButton.IsClicked()) {
-    SwitchScenario(currentScenario.rightChoice.next);
+    currentScenario.leftChoice.execute();
   }
 
-  background(0);
+  if (rightButton.IsClicked()) {
+    currentScenario.rightChoice.execute();
+  }
+
+  background(0, 128);
   fill(255);
 
   currentScenario.display();

@@ -19,15 +19,19 @@ void SwitchScenario(String _newScenario) {
         String[] splitString = split(set.getKey(), ":");
         if (storyFlags.indexOf(splitString[1]) != -1 ) {
           currentScenario = scenarios.get(newScenario + ":" + storyFlags.get(storyFlags.indexOf(splitString[1])));
+          UpdateChoices();
           return;
         }
       } else {
         currentScenario = scenarios.get(set.getKey());
+        UpdateChoices();
         return;
       }
     }
   }
-  
+}
+
+void UpdateChoices() {
   leftButton.text = currentScenario.leftChoice.label;
   rightButton.text = currentScenario.rightChoice.label;
 }
@@ -148,15 +152,97 @@ HashMap<String, Scenario> GetScenarioTree() {
   //////////////////////////////////////////////////
   retScenarios.put("L2.2 ReturnToOffice",
     new Scenario("data/Mom.png", "data/bg.png", "Narrator",
-    "Upon returning to the office you find that the bottom floor of the building is packed with people",
-    new Choice("ANSWER1", "Exit"),
-    new Choice("ANSWER2", "Exit")
+    "Upon returning to the office you find that the bottom floor of the building is packed with people, how do you get to the top floor?",
+    new Choice("You brave the elevator", "L2.2 BraveElevator"),
+    new Choice("You take that stairs", "L2.2 TakeStairs")
+    ));
+
+  retScenarios.put("L2.2 BraveElevator",
+    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    "You have to try to press the button, but there are many people.\n you don't know where you went.",
+    new Choice("...", "L2.3 BossReturn"),
+    new Choice("...", "L2.3 BossReturn")
+    ));
+
+  retScenarios.put("L2.2 TakeStairs",
+    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    "Those aren't yours!",
+    new Choice("I own this building!", "L2.2 StairsOwn"),
+    new Choice("That makes no sense...", "L2.2 StairsNoSense")
+    ));
+
+  retScenarios.put("L2.2 StairsOwn",
+    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    "Spoilers! Also not yet! but fine... Take them!",
+    new Choice("...", "L2.2 StairsEnd"),
+    new Choice("...", "L2.2 StairsEnd")
+    ));
+
+  retScenarios.put("L2.2 StairsEnd",
+    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    "You stop staring at a blank wall, you take the elevator",
+    new Choice("...", "L2.3 BossReturn"),
+    new Choice("...", "L2.3 BossReturn")
     ));
 
   //////////////////////////////////////////////////
-  //                     R1.1                     //
+  //                     L2.3                     //
   //////////////////////////////////////////////////
-  retScenarios.put("R1.1 Arrival",
+
+  retScenarios.put("L2.3 BossReturn:DarkCoffee",
+    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    "You end up on the correct floor where you meet your boss.\nHe takes the coffee and says \"You should go see the new boss, apparently just got hired\"",
+    new Choice("...", "L2.3 GoToNewBoss"),
+    new Choice("...", "L2.3 GoToNewBoss")
+    ));
+
+  retScenarios.put("L2.3 GoToNewBoss",
+    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    "You go to the top floor and enter a grand hall, it's empty except for a desk at the end with a chair turned away from you.\nWhen you get closer the chair slowly turns and you see...",
+    new Choice("...", "Exit"),
+    new Choice("...", "Exit")
+    ));
+
+
+  retScenarios.put("L2.3 BossReturn:SweetCoffee",
+    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    "You somehow ended up on the top floor, a generic looking office, where a man approaches you.\n\"Hey I need a coffee, gimme that!\"",
+    new Choice("But I need to give it to my boss!", "L2.3 CEOResist"),
+    new Choice("Fine, here you go", "Exit")
+    ));
+
+  retScenarios.put("L2.3 CEOResist",
+    new Scenario("data/Mom.png", "data/bg.png", "CEO",
+    "\"How dare you?!, I own this building!\" He says as he grabs the drink out of your hand.",
+    new Choice("Oh I am sorry...", "L2.3 CEOQuit"),
+    new Choice("\"Prick...\" You mutter under your breath", "L2.3 CEOQuit")
+    ));
+
+  retScenarios.put("L2.3 CEOAllow",
+    new Scenario("data/Mom.png", "data/bg.png", "CEO",
+    "\"Thank you!\n He says as he grabs it and drinks.",
+    new Choice("TODO", "L2.3 CEOQuit"),
+    new Choice("TODO", "L2.3 CEOQuit")
+    ));
+
+  retScenarios.put("L2.3 CEOQuit",
+    new Scenario("data/Mom.png", "data/bg.png", "CEO",
+    "\"I... have never tasted anything to exqusite\nI quit! I don't care anymore! Whoever sits on the chair in the main hall becomes CEO\"",
+    new Choice("I'll go to the main hall then", "L2.3 NewCEO"),
+    new Choice("Ooo, let's see who becomes the CEO!", "L2.3 NewCEO")
+    ));
+
+  retScenarios.put("L2.3 NewCEO",
+    new Scenario("data/Mom.png", "data/bg.png", "Narrator",
+    "As you arrive in the main hall you find a great room empty except for a desk at the end with a chair, before you can get closer to it you hear a woof from behind you as your dog charges to and sits in the new chair",
+    new Choice("TODO", "Exit"),
+    new Choice("TODO", "Exit")
+    ));
+
+    //////////////////////////////////////////////////
+    //                     R1.1                     //
+    //////////////////////////////////////////////////
+    retScenarios.put("R1.1 Arrival",
     new Scenario("data/Mom.png", "data/bg.png", "Narrator",
     "THIS IS YET TO BE IMPLEMENTED.",
     new Choice("I WANT MY MONEY BACK!", "R1.1 Moneyyy"),
