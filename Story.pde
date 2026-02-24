@@ -53,7 +53,7 @@ HashMap<String, Scenario> GetScenarioTree() {
   //////////////////////////////////////////////////
   retScenarios.put("M1.0 Awaken",
     new Scenario("data/Mom.png", "Narrator",
-    "You wake up, regretfully having to go to work.\n\nBefore you stands your dog, begging to go to work with you.",
+    "You wake up, regretfully having to go to work.\n\nBefore you stands your dog, big cute eyes looking up, begging to go to work with you.",
     new Choice("Take the dog to work", "L1.1 Arrival"),
     new Choice("Go to work alone", "R1.1 Arrival")
     ));
@@ -63,55 +63,55 @@ HashMap<String, Scenario> GetScenarioTree() {
   //////////////////////////////////////////////////
   retScenarios.put("L1.1 Arrival",
     new Scenario("data/doorguard.png", "Narrator",
-    "After having brought your dog, you get stopped by the front door guard.\n\nHe tells you that you need to fill out several forms before you're allowed in with the dog.",
-    new Choice("You begin filling out forms", "L1.1 ArrivalForm:FilledDogForm"),
-    new Choice("\"But he's so cuuute!!\"", "L1.1 ArrivalCuteness:SkippedDogForm")
+    "You and your dog drive together to work, and you park outside. You enter the building and immediately get stopped by the front door guard.\n\nHe tells you that you need to fill out several forms before you're allowed in with the dog.",
+    new Choice("Following protocol is important. You begin painstakingly filling out the tedious forms one by one", "L1.1 ArrivalForm:FilledDogForm"),
+    new Choice("\"But he's so cuuute!! Can't you just let him in? He won't cause any trouble, I promise\"", "L1.1 ArrivalCuteness:SkippedDogForm")
     ));
 
   retScenarios.put("L1.1 ArrivalForm",
     new Scenario("data/dogform.png", "Narrator",
-    "You spend an hour filling out forms, after forgetting your name several time you finally get let into the building.",
+    "You spend an hour filling out forms, and after forgetting your name several times you are finally let into the building. The guard gives you a smile as you go and bids you a good day.",
     new Choice("...", "L1.1 CoworkerInit"),
     new Choice("...", "L1.1 CoworkerInit")
     ));
 
   retScenarios.put("L1.1 ArrivalCuteness",
     new Scenario("data/Mom.png", "Narrator",
-    "\"Awww okay yeah, he's a real cutie pie, I'll let him in\" he said, then let you inside the building",
+    "\"Well... It's against the rules... But...\" he looks down at your dog for a few minutes, and seems to lose an internal battle against his professionalism. \"Awww okay yeah, he's a real cutie pie, I'll let him in\" he says, and then lets you inside the building.",
     new Choice("...", "L1.1 CoworkerInit"),
     new Choice("...", "L1.1 CoworkerInit")
     ));
 
   retScenarios.put("L1.1 CoworkerInit",
     new Scenario("data/karen.png", "Narrator",
-    "After finally being allowed in you get to your floor where you get stopped by your coworker Karen.",
+    "After finally being allowed in you get to your floor and step into your office, where you are stopped by your coworker Karen. She seems to be holding something.",
     new Choice("...", "L1.1 CoworkerLovesDoggie"),
     new Choice("...", "L1.1 CoworkerLovesDoggie")
     ));
 
   retScenarios.put("L1.1 CoworkerLovesDoggie",
     new Scenario("data/karen.png", "Karen",
-    "\"Your dog is so adorable, I've got a cookie for him\" She says as she extends a cookie towards your dog.",
+    "\"Your dog is so adorable! I've got a cookie for him,\" she says as she crouches down and extends a cookie towards your dog.",
     new Choice("You stop her and ask what's in the cookie", "L1.1 CoworkerCookieExplain"),
     new Choice("You let her feed the dog the cookie", "L1.1 CoworkerCookieDogDied")
     ));
 
   retScenarios.put("L1.1 CoworkerCookieExplain",
     new Scenario("data/karen.png", "Karen",
-    "\"Just some sugar, chocolate, a standard cookie\" She says before repeating her previous motion.",
-    new Choice("You stop her and tell her not to", "L1.1 CoworkerCookieAvoided"),
+    "\"What? Oh, just some sugar, chocolate, butter, you know, your standard cookie.\" She says before repeating her previous motion.",
+    new Choice("You stop her and tell her not to feed it to the dog", "L1.1 CoworkerCookieAvoided"),
     new Choice("You let her feed the dog the cookie", "L1.1 CoworkerCookieDogDied")
     ));
 
   retScenarios.put("L1.1 CoworkerCookieDogDied",
     new Scenario("data/dog_explosion.png", "Narrator",
-    "The cookie contained chocolate, the dog explodes immedietly taking you and the building with it.",
+    "The cookie contains chocolate. The dog explodes, immediatly taking you and the building with it.\n What were you expecting, honestly? You can't go giving dogs chocolate, it's a public hazard, everyone knows that.",
     new Choice("AAA-", "Exit"), new Choice("FUUU-", "Exit")
     ));
 
   retScenarios.put("L1.1 CoworkerCookieAvoided",
     new Scenario("data/cookie.png", "Narrator",
-    "After saving your dog from the posionous chocolate you get called into your boss' office.",
+    "You snatch the cookie from her hand and shove it in your mouth, complimenting it's delicious taste before you're done chewing. Karen stares at you with her mouth open in shock, and with an expression containing a faint hint of disgust. \n Phew, disaster avoided and successfully having saved your dog from the posionous chocolate you get called into your boss' office.",
     new Choice("...", "L2.1 CoffeeBossSendsToGet"),
     new Choice("...", "L2.1 CoffeeBossSendsToGet")
     ));
