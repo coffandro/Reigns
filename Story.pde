@@ -128,7 +128,7 @@ HashMap<String, Scenario> GetScenarioTree() {
 
   retScenarios.put("L2.1 CoffeeBossAccept",
     new Scenario("data/bossman.png", "Boss",
-    "Excellent then, I'll just keep the dog here... For safe keeping.",
+    "\"Excellent then, I'll just keep the dog here... For safe keeping.\"",
     new Choice("...", "L2.1 CoffeeShopArrival"),
     new Choice("...", "L2.1 CoffeeShopArrival")
     ));
@@ -188,7 +188,7 @@ HashMap<String, Scenario> GetScenarioTree() {
 
   retScenarios.put("L2.2 StairsEnd",
     new Scenario("data/Mom.png", "Narrator",
-    "You stop staring at a blank wall, you take the elevator",
+    "You stop staring at a blank wall, you take the elevator.",
     new Choice("...", "L2.3 BossReturn"),
     new Choice("...", "L2.3 BossReturn")
     ));
