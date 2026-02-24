@@ -32,7 +32,7 @@ void draw() {
     currentScenario.rightChoice.execute();
   }
 
-  background(0, 128);
+  background(0);
   fill(255);
 
   currentScenario.display();

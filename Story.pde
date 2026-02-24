@@ -76,7 +76,7 @@ HashMap<String, Scenario> GetScenarioTree() {
     ));
 
   retScenarios.put("L1.1 ArrivalCuteness",
-    new Scenario("data/dogform.png", "Narrator",
+    new Scenario("data/Mom.png", "Narrator",
     "\"Awww okay yeah, he's a real cutie pie, I'll let him in\" he said, then let you inside the building",
     new Choice("...", "L1.1 CoworkerInit"),
     new Choice("...", "L1.1 CoworkerInit")
@@ -104,7 +104,7 @@ HashMap<String, Scenario> GetScenarioTree() {
     ));
 
   retScenarios.put("L1.1 CoworkerCookieDogDied",
-    new Scenario("data/cookie.png", "Narrator",
+    new Scenario("data/dog_explosion.png", "Narrator",
     "The cookie contained chocolate, the dog explodes immedietly taking you and the building with it.",
     new Choice("AAA-", "Exit"), new Choice("FUUU-", "Exit")
     ));
