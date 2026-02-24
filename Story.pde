@@ -105,7 +105,7 @@ HashMap<String, Scenario> GetScenarioTree() {
 
   retScenarios.put("L1.1 CoworkerCookieDogDied",
     new Scenario("data/dog_explosion.png", "Narrator",
-    "The cookie contains chocolate. The dog explodes, immediatly taking you and the building with it.\n What were you expecting, honestly? You can't go giving dogs chocolate, it's a public hazard, everyone knows that.",
+    "The cookie contains chocolate. The dog explodes, immediatly taking you and the building with it.\n What were you expecting, honestly? \nYou can't go giving dogs chocolate, it's a public hazard, everyone knows that.",
     new Choice("AAA-", "Exit"), new Choice("FUUU-", "Exit")
     ));
 
