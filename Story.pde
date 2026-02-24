@@ -77,7 +77,7 @@ HashMap<String, Scenario> GetScenarioTree() {
 
   retScenarios.put("L1.1 ArrivalCuteness",
     new Scenario("data/Mom.png", "Narrator",
-    "\"Well... It's against the rules... But...\" he looks down at your dog for a few minutes, and seems to lose an internal battle against his professionalism. \"Awww okay yeah, he's a real cutie pie, I'll let him in\" he says, and then lets you inside the building.",
+    "\"Well... It's against the rules... But...\" He looks down at your dog for a few minutes, and seems to lose an internal battle against his professionalism. \"Awww okay yeah, he's a real cutie pie, I'll let him in,\" he says, and then lets you inside the building.",
     new Choice("...", "L1.1 CoworkerInit"),
     new Choice("...", "L1.1 CoworkerInit")
     ));
@@ -121,28 +121,28 @@ HashMap<String, Scenario> GetScenarioTree() {
   //////////////////////////////////////////////////
   retScenarios.put("L2.1 CoffeeBossSendsToGet",
     new Scenario("data/bossman.png", "Boss",
-    "\"I have been told you've bring your dog to work, that's against the rules...\n\n I am to report this BUT... I really need coffee and the intern's left the country so I'll let it slide if you get me a cuppa.\"",
-    new Choice("\"I'll go get you coffee, but what do I do about my dog?\"", "L2.1 CoffeeBossAccept"),
-    new Choice("\"Nah, you can buy your own coffee\"", "L2.1 CoffeeBossDeny")
+    "\"I have been told you've brought your dog to work today, that's against the rules...\n\n I am to report this BUT... I really need coffee and the intern's left the country so I'll let it slide if you get me a cuppa.\"",
+    new Choice("\"I'll go get you a coffee sir, but what do I do about my dog?\"", "L2.1 CoffeeBossAccept"),
+    new Choice("\"Nah, you can buy your own coffee, why should I do it? You know I feel like it even goes against some workplace rights, I could take you to court, and I'd easily win. I mean can't you see how wrong this is? Asking your subordinate to grab you a cuppa, what am I, a slave to your every need and desires?\"", "L2.1 CoffeeBossDeny")
     ));
 
   retScenarios.put("L2.1 CoffeeBossAccept",
     new Scenario("data/bossman.png", "Boss",
-    "Excellent, I'll just keep the dog here... For safe keeping",
+    "Excellent then, I'll just keep the dog here... For safe keeping.",
     new Choice("...", "L2.1 CoffeeShopArrival"),
     new Choice("...", "L2.1 CoffeeShopArrival")
     ));
 
   retScenarios.put("L2.1 CoffeeBossDeny",
     new Scenario("data/bossman.png", "Boss",
-    "\"HOW DARE YOU?! I provide you a chance to avoid a write-up for a simple cup of coffee and you dare to deny me? You are fired.\" he says as security enters.",
+    "\"HOW DARE YOU?! I provide you a chance to avoid a write-up for a simple cup of coffee and you dare to deny me? You are fired,\" he says as security enters.",
     new Choice("Oh...", "Exit"),
-    new Choice("I WILL FIGHT!!!", "L2.1 CoffeeBossFight")
+    new Choice("I WILL FIGHT!!! VIVE LA RÉVOLUTION!!!", "L2.1 CoffeeBossFight")
     ));
 
   retScenarios.put("L2.1 CoffeeBossFight",
     new Scenario("data/bossman.png", "Boss",
-    "You proceed to get your ass handed to you.",
+    "You try to fight your boss who fired you for refusing to get him coffee and vault over his desk to attack.\nUnfortunately, you proceed to get your ass handed to you.",
     new Choice("...", "Exit"),
     new Choice("...", "Exit")
     ));
@@ -150,9 +150,9 @@ HashMap<String, Scenario> GetScenarioTree() {
   retScenarios.put("L2.1 CoffeeShopArrival",
     new Scenario("data/Mom.png", "Narrator",
     "You arrive at the coffee shop, enter and go to the counter.\n As the Barista asks you what you want to order you realise that you don't actually know what your boss would like...",
-    new Choice("Order a Venti cup of Double Ristretto with Iced Vanilla Double Shot and Organic Chocolate Brownie Decaf coffee; Nonfat half-breve double blended upside-down with whipped cream and foam, extra hot Gingerbread Frappuccino, a Nutrasweet and a Sweet N'Low, finally touched with some ice.",
+    new Choice("Order a Venti cup of Double Ristretto with Iced Vanilla Double Shot and Organic Chocolate Brownie Decaf coffee; Nonfat half-breve double blended upside-down with whipped cream and foam, extra hot Gingerbread Frappuccino, a Nutrasweet and a Sweet N'Low, finally touched with some ice",
     "L2.2 ReturnToOffice:SweetCoffee"),
-    new Choice("Order a black coffee, dark like his soul.", "L2.2 ReturnToOffice:DarkCoffee")
+    new Choice("Order a black coffee, dark like his soul", "L2.2 ReturnToOffice:DarkCoffee")
     ));
 
   //////////////////////////////////////////////////
@@ -160,8 +160,8 @@ HashMap<String, Scenario> GetScenarioTree() {
   //////////////////////////////////////////////////
   retScenarios.put("L2.2 ReturnToOffice",
     new Scenario("data/Mom.png", "Narrator",
-    "Upon returning to the office you find that the bottom floor of the building is packed with people, how do you get to the top floor?",
-    new Choice("You brave the elevator", "L2.2 BraveElevator"),
+    "Upon returning to the building with drink in hand, you find that the entance floor is packed with people. How do you get want to get to the top floor?",
+    new Choice("You don't feel like walking any more, and brave the elevator", "L2.2 BraveElevator"),
     new Choice("You take that stairs", "L2.2 TakeStairs")
     ));
 
@@ -181,7 +181,7 @@ HashMap<String, Scenario> GetScenarioTree() {
 
   retScenarios.put("L2.2 StairsOwn",
     new Scenario("data/Mom.png", "Narrator",
-    "Spoilers! Also not yet! but fine... Take them!",
+    "[new Scenario ☐☐☐☐ started] Spoilers! Also not yet! But fine... Take them!",
     new Choice("...", "L2.2 StairsEnd"),
     new Choice("...", "L2.2 StairsEnd")
     ));
@@ -199,14 +199,14 @@ HashMap<String, Scenario> GetScenarioTree() {
 
   retScenarios.put("L2.3 BossReturn:DarkCoffee",
     new Scenario("data/Mom.png", "Narrator",
-    "You end up on the correct floor where you meet your boss.\nHe takes the coffee and says \"You should go see the new boss, apparently just got hired\"",
+    "After getting through that whole ordeal and little misadventure, you end up on the correct floor where you meet your boss.\nHe takes the coffee and says \"You should go see the new boss, apparently just got hired\".",
     new Choice("...", "L2.3 GoToNewBoss"),
     new Choice("...", "L2.3 GoToNewBoss")
     ));
 
   retScenarios.put("L2.3 GoToNewBoss",
     new Scenario("data/Mom.png", "Narrator",
-    "You go to the top floor and enter a grand hall, it's empty except for a desk at the end with a chair turned away from you.\nWhen you get closer the chair slowly turns and you see...",
+    "You go to the top floor and enter a grand hall, it's empty except for a desk at the end with a chair turned away from you.\nWhen you get closer the chair slowly turns around and you see...",
     new Choice("...", "Exit"),
     new Choice("...", "Exit")
     ));
@@ -221,28 +221,28 @@ HashMap<String, Scenario> GetScenarioTree() {
 
   retScenarios.put("L2.3 CEOResist",
     new Scenario("data/Mom.png", "CEO",
-    "\"How dare you?!, I own this building!\" He says as he grabs the drink out of your hand.",
-    new Choice("Oh I am sorry...", "L2.3 CEOQuit"),
+    "\"How dare you?! I own this building!\" He says as he grabs the drink out of your hand.",
+    new Choice("Oh, I am sorry...", "L2.3 CEOQuit"),
     new Choice("\"Prick...\" You mutter under your breath", "L2.3 CEOQuit")
     ));
 
   retScenarios.put("L2.3 CEOAllow",
     new Scenario("data/Mom.png", "CEO",
-    "\"Thank you!\n He says as he grabs it and drinks.",
+    "\"Thank you!\n He says as he grabs it and turns it up, taking a big gulp of the liquid.",
     new Choice("TODO", "L2.3 CEOQuit"),
     new Choice("TODO", "L2.3 CEOQuit")
     ));
 
   retScenarios.put("L2.3 CEOQuit",
     new Scenario("data/Mom.png", "CEO",
-    "\"I... have never tasted anything to exqusite\nI quit! I don't care anymore! Whoever sits on the chair in the main hall becomes CEO\"",
+    "\"I... have never tasted anything so exquisite!\nI quit! I don't care anymore! Whoever first sits on the chair in the main hall immediately becomes the acting CEO, starting now.\"",
     new Choice("I'll go to the main hall then", "L2.3 NewCEO"),
     new Choice("Ooo, let's see who becomes the CEO!", "L2.3 NewCEO")
     ));
 
   retScenarios.put("L2.3 NewCEO",
     new Scenario("data/Mom.png", "Narrator",
-    "As you arrive in the main hall you find a great room empty except for a desk at the end with a chair, before you can get closer to it you hear a woof from behind you as your dog charges to and sits in the new chair",
+    "As you arrive in the main hall you find a great room empty except for a desk at the end with a chair, before you can get closer to it you hear a woof from behind you as your dog charges forward and sits in the new chair.",
     new Choice("TODO", "Exit"),
     new Choice("TODO", "Exit")
     ));
