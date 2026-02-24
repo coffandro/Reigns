@@ -63,7 +63,7 @@ HashMap<String, Scenario> GetScenarioTree() {
   //////////////////////////////////////////////////
   retScenarios.put("L1.1 Arrival",
     new Scenario("data/doorguard.png", "Narrator",
-    "You and your dog drive together to work, and you park outside. You enter the building and immediately get stopped by the front door guard.\n\nHe tells you that you need to fill out several forms before you're allowed in with the dog.",
+    "You and your dog drive together to work, and you park outside. You enter the building and immediately get stopped by the front door guard.\nHe tells you that you need to fill out several forms before you're allowed in with the dog.",
     new Choice("Following protocol is important. You begin painstakingly filling out the tedious forms one by one", "L1.1 ArrivalForm:FilledDogForm"),
     new Choice("\"But he's so cuuute!! Can't you just let him in? He won't cause any trouble, I promise\"", "L1.1 ArrivalCuteness:SkippedDogForm")
     ));
@@ -77,7 +77,7 @@ HashMap<String, Scenario> GetScenarioTree() {
 
   retScenarios.put("L1.1 ArrivalCuteness",
     new Scenario("data/Mom.png", "Narrator",
-    "\"Well... It's against the rules... But...\" He looks down at your dog for a few minutes, and seems to lose an internal battle against his professionalism. \"Awww okay yeah, he's a real cutie pie, I'll let him in,\" he says, and then lets you inside the building.",
+    "\"Well... It's against the rules... But...\" He looks down at your dog for a few minutes, and seems to lose an internal battle against his professionalism. \n\"Awww okay yeah, he's a real cutie pie, I'll let him in,\" he says, and then lets you inside the building.",
     new Choice("...", "L1.1 CoworkerInit"),
     new Choice("...", "L1.1 CoworkerInit")
     ));
