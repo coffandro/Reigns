@@ -1,34 +1,40 @@
 class Choice {
   String label;
   String next;
+  float karmaMod;
 
-  Choice(String label, String next) {
-    this.label = label;
-    this.next = next;
+  Choice(String _label, String _next, float _karmaMod) {
+    label = _label;
+    next = _next;
+    karmaMod = _karmaMod;
   }
 
   void execute() {
     if (next == "Exit") {
       exit();
+      return;
     } else {
       SwitchScenario(next);
     }
+    
+    UpdateKarma(karmaMod);
   }
 }
 
 class Scenario {
   PImage img;
-  String title, message;
+  String message;
   PVector pos, size;
   boolean dragging = false;
   Choice leftChoice, rightChoice;
 
-  Scenario(String imgPath, String title, String message, Choice leftChoice, Choice rightChoice) {
+  Scenario(String imgPath, String message, Choice leftChoice, Choice rightChoice) {
     img = loadImage(imgPath);
-    this.title = title;
     this.message = message;
+    
     pos = new PVector(width/2, height/2);
     size = new PVector(width/2, width/2);
+    
     this.leftChoice = leftChoice;
     this.rightChoice = rightChoice;
   }
@@ -48,10 +54,6 @@ class Scenario {
     translate(width/2, 0);
 
     fill(0);
-    textSize(32);
-    textFont(boldFont);
-    textAlign(CENTER);
-    text(title, 0, height-150);
 
     rectMode(LEFT);
     textFont(regularFont);
