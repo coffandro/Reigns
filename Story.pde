@@ -55,7 +55,14 @@ HashMap<String, Scenario> GetScenarioTree() {
     new Scenario("data/Mom.png",
     "You wake up, regretfully having to go to work.\n\nBefore you stands your dog, big cute eyes looking up, begging to go to work with you.",
     new Choice("Take the dog to work", "L1.1 Arrival"),
-    new Choice("Go to work alone", "R1.1 Arrival")
+    new Choice("Go to work alone", "M1.1 Awaken")
+    ));
+
+retScenarios.put("M1.1 Awaken",
+    new Scenario("data/Mom.png",
+    "You open the door to leave but before it shuts your dog sneaks out with you, and unnoticed climbs into your car. Only half way do you discover your extra passenger and by then it's too late to turn back.",
+    new Choice("You've been a bad dog, no treats for you when we get home", "L1.1 Arrival"),
+    new Choice("Alright, just this once", "L1.1 Arrival")
     ));
 
   //////////////////////////////////////////////////
@@ -216,7 +223,7 @@ HashMap<String, Scenario> GetScenarioTree() {
     new Scenario("data/Mom.png",
     "You somehow ended up on the top floor, a generic looking office, where a man approaches you.\n\"Hey I need a coffee, gimme that!\"",
     new Choice("But I need to give it to my boss!", "L2.3 CEOResist"),
-    new Choice("Fine, here you go", "Exit")
+    new Choice("Fine, here you go", "L2.3 CEOAllow")
     ));
 
   retScenarios.put("L2.3 CEOResist",
