@@ -3,6 +3,12 @@ class Choice {
   String next;
   float karmaMod;
 
+  Choice(String _label, String _next) {
+    label = _label;
+    next = _next;
+    karmaMod = 0;
+  }
+
   Choice(String _label, String _next, float _karmaMod) {
     label = _label;
     next = _next;
@@ -16,7 +22,7 @@ class Choice {
     } else {
       SwitchScenario(next);
     }
-    
+
     UpdateKarma(karmaMod);
   }
 }
@@ -31,22 +37,12 @@ class Scenario {
   Scenario(String imgPath, String message, Choice leftChoice, Choice rightChoice) {
     img = loadImage(imgPath);
     this.message = message;
-    
+
     pos = new PVector(width/2, height/2);
     size = new PVector(width/2, width/2);
-    
+
     this.leftChoice = leftChoice;
     this.rightChoice = rightChoice;
-  }
-
-  void drawCard() {
-    pushMatrix();
-    translate(pos.x, pos.y);
-    fill(240, 217, 175);
-
-    image(img, 0, 0, size.x, size.y);
-
-    popMatrix();
   }
 
   void drawTexts() {
@@ -58,7 +54,7 @@ class Scenario {
     rectMode(LEFT);
     textFont(regularFont);
     textSize(24);
-    text(message, -width/4 + 50, 50, width/4 - 50, height/4 - 25);
+    text(message, -width/4 + 50, 50, width/4 - 50, height/4 + height/6);
 
     rectMode(CORNER);
     fill(255);
@@ -72,8 +68,9 @@ class Scenario {
   void display() {
     rectMode(CENTER);
     rect(width/2, height/2, width/2, height, 25);
+    
+    image(img, pos.x, pos.y, size.x, size.y);
+    
     drawTexts();
-
-    drawCard();
   }
 }

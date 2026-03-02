@@ -1,5 +1,8 @@
+float maxRange = 100;
+
 void UpdateKarma(float karmaMod) {
   karma += karmaMod;
+  karma = max(min(karma, maxRange/2), -maxRange/2);
   circle.setKarma(karma);
 }
 
@@ -27,7 +30,7 @@ class KarmaCircle {
     }
     
     karma = _karma;
-    targetSize = (karma / 100) * maxSize;
+    targetSize = (karma / (maxRange/2)) * maxSize;
   }
 
   float getKarma() {
@@ -45,6 +48,12 @@ class KarmaCircle {
   }
 
   void display() {
+    if (currentSize > 0) {
+      fill(255);
+    } else {
+      fill(0);
+    }
+    
     ellipse(pos.x, pos.y, currentSize, currentSize);
   }
 }

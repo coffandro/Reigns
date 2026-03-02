@@ -65,6 +65,8 @@ class Button {
     } else {
       fill(col);
     }
+    
+    textSize(24);
 
     rectMode(CORNER);
     rect(pos.x, pos.y, size.x, size.y, borderRadius);
