@@ -6,12 +6,12 @@ KarmaCircle circle;
 float karma;
 
 void setup() {
-  size(1000, 1000);
+  size(720, 720);
 
   rectMode(CENTER);
   imageMode(CENTER);
-  
-  karma = 50;
+
+  karma = 25;
   circle = new KarmaCircle(width/2, width/2 + width/4 + width/8, karma);
 
   leftButton = new Button(25, height/8, width/4-25*2, height-(height/8)*2);
