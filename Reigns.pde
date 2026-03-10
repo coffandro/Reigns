@@ -1,3 +1,5 @@
+import java.util.Map;
+
 Scenario currentScenario;
 HashMap<String, Scenario> scenarios;
 PFont regularFont, boldFont, italicFont;
@@ -18,6 +20,7 @@ void setup() {
   rightButton = new Button(width/2 + width/4 + 25, height/8, width/4-25*2, height-(height/8)*2);
 
   scenarios = GetScenarioTree();
+  AnalyseScenarios(scenarios);
   SwitchScenario(introScenario);
 
   regularFont = createFont("data/font/RobotoCondensed-Regular.ttf", 64);

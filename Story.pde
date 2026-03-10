@@ -1,48 +1,4 @@
-ArrayList<String> storyFlags = new ArrayList<String>();
 String introScenario = "M1.0 Awaken";
-
-void SwitchScenario(String _newScenario) {
-
-  String newScenario = _newScenario;
-  String requiredFlag = null;
-
-  // Split incoming scenario if it contains a flag
-  if (_newScenario.contains(":")) {
-    String[] splitString = split(_newScenario, ":");
-    newScenario = splitString[0];
-    requiredFlag = splitString[1];
-
-    if (!storyFlags.contains(requiredFlag)) {
-      storyFlags.add(requiredFlag);
-    }
-  }
-
-  // Try exact flagged match
-  for (String key : scenarios.keySet()) {
-    if (key.contains(":")) {
-      String[] splitKey = split(key, ":");
-      String base = splitKey[0];
-      String flag = splitKey[1];
-
-      if (base.equals(newScenario) && storyFlags.contains(flag)) {
-        currentScenario = scenarios.get(key);
-        UpdateChoices();
-        return;
-      }
-    }
-  }
-
-  // Fall back to exact base match
-  if (scenarios.containsKey(newScenario)) {
-    currentScenario = scenarios.get(newScenario);
-    UpdateChoices();
-  }
-}
-
-void UpdateChoices() {
-  leftButton.text = currentScenario.leftChoice.label;
-  rightButton.text = currentScenario.rightChoice.label;
-}
 
 HashMap<String, Scenario> GetScenarioTree() {
   // Set up Dictionary
