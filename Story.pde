@@ -237,8 +237,8 @@ HashMap<String, Scenario> GetScenarioTree() {
   retScenarios.put("L2.3 BossDies",
     new Scenario("data/Mom.png",
     "You watch through the glass as your boss begins coughing violently and falls to the floor. Several guards arrive and drag the CEO away as the employees gossip. Apparently he was receiving a warrant of tax evasion and inappropriate conduct with subordinates, but now additionally manslaughter on top of that.",
-    new Choice("Huh?", "L2."),
-    new Choice("Guess it was true...", "L2.")
+    new Choice("Huh?", "L2.3 WorkWork"),
+    new Choice("Guess it was true...", "L2.3 WorkWork")
     ));
 
   retScenarios.put("L2.3 WorkWork",
